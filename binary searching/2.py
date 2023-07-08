@@ -14,7 +14,8 @@ def search(arr, target) :
                 lo = mid + 1
             else:
                 hi = mid - 1
-    
+                
+                  
     # right sorted portion
         else:
             if (target < arr[mid] or target > arr[hi]):
