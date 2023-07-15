@@ -27,7 +27,6 @@ class Queue :
         return x
 
 
-
     def front(self) :
         if self.isEmpty():
             return -1
