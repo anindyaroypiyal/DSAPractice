@@ -80,8 +80,9 @@ def spellChecker(dictionary, query):
     
     if dictio.search(query): 
         return ["CORRECT"]
-    elif not dictio.startWith(query): 
-        return sorted(dictionary)
+    elif not dictio.startWith(query):
+        s = set(dictionary)
+        return sorted(s)
     else:
         w = []
         checker = dictio.prefMatch(query)
