@@ -1,85 +1,23 @@
-from os import *
-from sys import *
-from collections import *
-from math import *
+def rotateArray(arr: list, k: int) -> list:
+    # Write your code here.
+    length = len(arr)
+    rev(arr,0,length-1)
+    rev(arr, length-k, length-1) #reversing last k element.
+    rev(arr, 0, length-k-1) #reversing remaining. length - k - 1, becasue k is 1 based.
 
+    return arr
 
-def rotateArr(size,arr,rotate):
-
+def rev(arr, l, r): #reverse function.
+    while l<r:
+        arr[l],arr[r] = arr[r],arr[l]
+        l,r = l+1, r-1
+    return
  
+# 2 methods for solving this problem:
+# o(n) method: use a new array, copy from main array, use % operation.
 
-    newArr = arr[rotate:]+arr[:rotate]
-
-    string = ""
-
-    string =" ".join(str(v) for v in newArr)
-
-    print(string)
-
- 
-
-size = int(input())
-
- 
-
-arr = list(map(int,input().split()))
-
- 
-
-rotate = int(input())
-
- 
-
-rotateArr(size,arr,rotate)
-
-#Your code goes here.
-# size = 8
-# arr = [7, 5, 2, 11, 2, 43, 1, 1]
-# rotate = 2
-
-# def rotateArray(N,arr,K):
-#     arr2 = arr
-
-#     for i in range(N):
-#         arr2[i-K] = arr[i]
-
-#     print(arr2)
-
-# N = int(input())
-# arr = list(map(int,input().split()))
-# K = int(input())
-
-# rotateArray(N,arr,K)
-
-
-# for i in range (size):
-#     pos = i - rotate
-#     if (pos) < 0:
-#         arr2[size + pos] = arr[i]
-#     else:
-#         arr2[pos] = arr[i]  
-
-# print(arr2)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# o(1) method: all operation in place.
+# reverse the main array,
+# reverse first k elements, (for right rotate)
+#reverser the last k elements, (for left rotate)
+# reverse the remaining elements.
